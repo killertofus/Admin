@@ -1,3 +1,4 @@
+#thanks to alcindogandhi for the insperation/code https://github.com/alcindogandhi/linux-scripts/blob/main/install-libreoffice.sh
 import subprocess
 import os
 import wget
