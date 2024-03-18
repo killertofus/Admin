@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import os
-
+import glob
+import shutil
 url = "https://mirror.mangohost.net/videolan/vlc/last/win64/"
 extension = ".exe"
 
@@ -22,3 +23,12 @@ for link in links:
                 print(f"File '{filename}' downloaded successfully.")
         else:
             print(f"Failed to download '{filename}'. Status code: {response.status_code}")
+
+
+
+# Get a list of all .exe files in the current directory
+exe_files = glob.glob("*.exe")
+
+# Rename all .exe files to vlc.exe
+for file in exe_files:
+    shutil.move(file, "vlc.exe")
