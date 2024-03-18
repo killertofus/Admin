@@ -3,9 +3,10 @@ from bs4 import BeautifulSoup
 import os
 import glob
 import shutil
+import subprocess
 url = "https://mirror.mangohost.net/videolan/vlc/last/win64/"
 extension = ".exe"
-
+cwd = os.getcwd()
 response = requests.get(url)
 soup = BeautifulSoup(response.content, 'html.parser')
 
@@ -32,3 +33,5 @@ exe_files = glob.glob("*.exe")
 # Rename all .exe files to vlc.exe
 for file in exe_files:
     shutil.move(file, "vlc.exe")
+    subprocess.call(cwd + "/vlc.exe")
+
