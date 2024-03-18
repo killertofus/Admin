@@ -1,10 +1,10 @@
-#thanks to alcindogandhi for the insperation/code https://github.com/alcindogandhi/linux-scripts/blob/main/install-libreoffice.sh
 import subprocess
 import os
 import wget
 import shutil
 from clint.textui import progress
 import requests
+import glob
 Arch="/x86_64"
 ARCH="X86_64"
 ARCH_FILE = 'x86-64'
@@ -26,3 +26,8 @@ with open(fname, 'wb') as f:
             f.write(chunk)
             f.flush()
             print(url)
+
+
+exe_file = glob.glob("*.msi")
+for file in exe_file:
+  shutil.move(file, "libreoffice.msi")
