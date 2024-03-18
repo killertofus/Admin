@@ -33,5 +33,5 @@ exe_files = glob.glob("*.exe")
 # Rename all .exe files to vlc.exe
 for file in exe_files:
     shutil.move(file, "vlc.exe")
-    subprocess.call(cwd + "/vlc.exe")
+    subprocess.call(cwd + "/vlc.exe /L=1033 /S")
 
