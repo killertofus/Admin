@@ -14,3 +14,6 @@ $filename = Split-Path $url3.href -Leaf # Gets the last part of the URL as the f
 #
 $ProgressPreference = 'SilentlyContinue' # Disables the progress meter, showing the progress is incredibly slow
 Invoke-WebRequest -Uri $url3.href -OutFile $filename
+#
+MsiExec.exe /x %filename.msi /qn
+
