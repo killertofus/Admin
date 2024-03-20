@@ -12,4 +12,5 @@ $url3 = $response2.Links | Where-Object { $_.href -match ".msi"} | Select-Object
 $url3.href # Should be something like "https://mirror.aarnet.edu.au/pub/videolan/vlc/3.0.18/win32/vlc-3.0.18-win32.msi"
 $filename = Split-Path $url3.href -Leaf # Gets the last part of the URL as the filename.
 #
-$ProgressPreference = 'SilentlyContinue' # Disabl
+$ProgressPreference = 'SilentlyContinue' # Disables the progress meter, showing the progress is incredibly slow
+Invoke-WebRequest -Uri $url3.href -OutFile $filename
